@@ -62,7 +62,7 @@ Function Get-Average-Coord {
     $count = 0
     ls .\*.json | %{ 
       $_ | Get-Content -Encoding utf8 | ConvertFrom-Json | % {
-        if ($_.lat -and $_.lon) {
+        if ($_.lat -and $_.lon -and $_.lat -lt 180 -and $_.lon -lt 180) {
           $lat += $_.lat
           $lon += $_.lon
           $count += 1
