@@ -1,0 +1,49 @@
+{
+  "mapZoom": 12,
+  "mapLat": 18.485466866666664,
+  "mapLon": -77.92207188125,
+  "articles": [
+    "000001day.json",
+    "000002day.json",
+    "000003day.json",
+    "000004day.json"
+  ],
+  "photos": [
+    {
+      "Width": 607,
+      "Name": "eat1.jpg",
+      "Height": 1080,
+      "Miniature": "resized_eat1.jpg"
+    },
+    {
+      "Width": 4608,
+      "Name": "eat2.jpg",
+      "Height": 2592,
+      "Miniature": "resized_eat2.jpg"
+    },
+    {
+      "Width": 1080,
+      "Name": "eat3.jpg",
+      "Height": 607,
+      "Miniature": "resized_eat3.jpg"
+    },
+    {
+      "Width": 4608,
+      "Name": "firstDay1.jpg",
+      "Height": 2592,
+      "Miniature": "resized_firstDay1.jpg"
+    },
+    {
+      "Width": 4608,
+      "Name": "firstDay2.jpg",
+      "Height": 2592,
+      "Miniature": "resized_firstDay2.jpg"
+    },
+    {
+      "Width": 2592,
+      "Name": "lastDay.jpg",
+      "Height": 4608,
+      "Miniature": "resized_lastDay.jpg"
+    }
+  ]
+}

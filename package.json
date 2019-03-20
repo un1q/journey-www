@@ -1,0 +1,34 @@
+{
+  "name": "journey-www-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "firebase-tools": "^6.4.0",
+    "fs-readdir": "0.0.3",
+    "image-size": "^0.7.2",
+    "list-react-files": "^0.2.0",
+    "moment": "^2.24.0",
+    "ol": "^5.3.1",
+    "photoswipe": "^4.1.3",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-moment": "^0.8.4",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

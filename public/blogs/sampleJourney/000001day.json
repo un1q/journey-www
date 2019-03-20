@@ -1,0 +1,15 @@
+{
+  "text": "*Pierwszy dzień* jesteśmy zmęczeni lotem",
+  "date_journal": 1520394840000,
+  "address": "",
+  "lat": 18.49522,
+  "lon": -77.91472,
+  "weather": {
+    "degree_c": 30,
+    "description": "Sunny"
+  },
+  "photos": [
+    "firstDay1.jpg",
+    "firstDay2.jpg"
+  ]
+}

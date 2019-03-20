@@ -1,0 +1,16 @@
+{
+  "text": "*Wakacyjne aktywności* Dużo jemy.",
+  "date_journal": 1520462657525,
+  "address": "Union St, Montego Bay, Jamaica",
+  "lat": 18.47440249999999,
+  "lon": -77.92221484375,
+  "weather": {
+    "degree_c": 26,
+    "description": "Few clouds"
+  },
+  "photos": [
+    "eat1.jpg",
+    "eat2.jpg",
+    "eat3.jpg"
+  ]
+}

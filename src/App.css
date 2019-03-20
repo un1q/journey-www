@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  font-size: calc(10px + 2vmin);
+  color: rgb(24, 12, 53);
+  background-color: #f1fcfc;
+}
+
+/* GRID / FLOATING ELEMENTS */
+
+.ArticleHeader, .ArticleMain, .Article {
+  float: left;
+  background-color: #f1fcfc;
+}
+.ArticleTitle {
+  width         :100%;
+  font-family   : Impact, Charcoal, sans-serif;
+  font-size     : 1.2em;
+  padding-bottom: 20px;
+}
+.Article::after {
+  clear: both;
+}
+@media only screen and (min-width: 600px)  {
+  .ArticleHeader {
+    width: 33%;
+  }
+
+  .ArticleMain {
+    width: 65%;
+    border-left: 2px solid rgb(24, 12, 53); 
+  }
+
+  .Article {
+    width: 100%;
+    padding-bottom: 50px;
+  }
+}
+
+/* ARTICLES */
+
+.ArticleMain {
+  padding-left: 20px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 0.8em;
+}
+
+.Date {
+  font-family: Impact, Charcoal, sans-serif;
+}
+.Time {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+.PhotoMiniature {
+  width: 25%;
+  float:left;
+  padding-right: 1px;
+  padding-top: 10px;
+}
+
+.ArticleName::before {
+  clear: both;
+}
+.ArticleName {
+  font-family: 'Courier New', Courier, monospace;
+  color: burlywood;
+  text-align: right;
+  width: 100%;
+  float: left;
+}
+
+.JourneyName {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 100%;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  font-size: 3em;
+}
+
+.GooglePhotosUrl {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 100%;
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 100px;
+  font-size: 0.5em;
+}
+
+.ArticleAdditionalInfo {
+  text-align: right;
+  width: 100%;
+  font-size: 0.8em;
+  padding-top   : 30px;
+  padding-left  : 20px; 
+  padding-right : 30px;
+  padding-bottom: 40px;
+}
+
+.Weather {
+  color: #0c0b5a;
+}
+
+.DegreeC {
+  font-size: 1.1em;
+  font-weight: bolder;
+}
+
+/* NAVIGATION */
+
+.Navigation {
+  width: 100%;
+  float: left;
+}
+.NavigationLink {
+  padding: 10px;
+  float: left;
+}
+.Navigation::after {
+  clear: both;
+}
+
+/* PASSWORD */
+
+.Pass {
+  width : 100%;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.WrongPass {
+  color: red;
+}
+
+/*MAP*/
+
+.MapView {
+  padding-bottom: 20px;
+}
+
+@media only screen and (min-width: 600px)  {
+  .MapView {
+    padding-bottom: 20px;
+    width : 60%;
+    margin: 0 auto;
+  }
+}
+
+.MapMarkerPin {
+  display: block;
+  width : 20px;
+  height: 20px;
+  border: 1px solid #088;
+  border-radius: 10px;
+  background-color: #0FF;
+  opacity: 0.5;
+}
+.MapMarker:hover{
+  background-color: #f020f0;
+}
+.MapMarker:hover div{
+  display: block;
+}
+.MapMarkerText {
+  display         : none;
+  margin-left     : 20px;
+  margin-top      : -8px;
+  border          : 4px solid white;
+  border-radius   : 10px;
+  font-size       : 0.8em;
+  color           : black;
+  background-color: white;
+  opacity         : 0.7;
+}

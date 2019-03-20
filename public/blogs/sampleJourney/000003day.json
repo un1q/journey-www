@@ -1,0 +1,14 @@
+{
+  "text": "*Szoping* wydaliśmy całą kasę.",
+  "date_journal": 1520438409600,
+  "address": "Doctor's Cave Beach",
+  "lat": 18.4897781,
+  "lon": -77.9292808,
+  "weather": {
+    "degree_c": 28,
+    "description": "Few clouds"
+  },
+  "photos": [
+    "filmik.mp4"
+  ]
+}
