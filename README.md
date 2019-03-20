@@ -9,6 +9,10 @@ This is blog designed to be recollection of my trips.
 ```
   . .\tools\prepareJson.ps1 ; Get-Blog-Json -Directory '.\public\sampleJourney\'
 ```
+Use -Median parameter if you prefer median over average map marks coordinates:
+```
+  . .\tools\prepareJson.ps1 ; Get-Blog-Json -Directory '.\public\sampleJourney\' -Median
+```
 5. Add your blog to src/configuration.js
   
 ## NPM

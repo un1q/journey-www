@@ -18,7 +18,8 @@ Function Get-Image {
 Function Get-Blog-Json {
   Param(
     [String]$Directory,
-    [parameter(Mandatory=$false)][Int] $mapZoom
+    [parameter(Mandatory=$false)][Int] $MapZoom,
+    [parameter(Mandatory=$false)][Switch] $Median
   )
   Begin{
     pwd | % { [IO.Directory]::SetCurrentDirectory($_.path) }
@@ -28,8 +29,8 @@ Function Get-Blog-Json {
     if ($Directory) {
       cd $Directory
     }
-    if (-not $mapZoom) {
-      $mapZoom = 9
+    if (-not $MapZoom) {
+      $MapZoom = 9
     }
     $photos = ls * -include *.jpg, *.png | ? {-not ($_.name -like 'resized_*.*')} | %{
       $image = $_ | Get-Image
@@ -41,11 +42,15 @@ Function Get-Blog-Json {
       }
     }
     $jsonFiles = ls -Filter '*.json' | % {$_.Name}
-    $coords = Get-Average-Coord
+    if ($Median) {
+      $coords = Get-Median-Coord
+    } else {
+      $coords = Get-Average-Coord
+    }
     New-Object PSObject -Property  @{ 
       mapLon   = $coords.lon
       mapLat   = $coords.lat
-      mapZoom  = $mapZoom
+      mapZoom  = $MapZoom
       articles = $jsonFiles
       photos   = $photos
     } | ConvertTo-Json
@@ -78,6 +83,64 @@ Function Get-Average-Coord {
       lon = $lon
     }
   }
+}
+
+Function Get-Median-Coord {
+  Param()
+  Begin {}
+  Process {
+    $latList = New-Object System.Collections.ArrayList
+    $lonList = New-Object System.Collections.ArrayList
+    ls .\*.json | %{ 
+      $_ | Get-Content -Encoding utf8 | ConvertFrom-Json | % {
+        if ($_.lat -and $_.lon -and $_.lat -lt 180 -and $_.lon -lt 180) {
+          $latList.Add( $_.lat ) | Out-Null
+          $lonList.Add( $_.lon ) | Out-Null
+        }
+      }
+    }
+    New-Object PSObject -Property  @{ 
+      lat = Get-Median $latList
+      lon = Get-Median $lonList
+    }
+  }
+}
+
+function Get-Median
+{
+    <# 
+    .Synopsis 
+        Gets a median 
+    .Description 
+        Gets the median of a series of numbers 
+    .Example 
+        Get-Median 2,4,6,8 
+    #>
+    param(
+    # The numbers to average
+    [Parameter(Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
+    [Double[]]
+    $Number
+    )
+    
+    begin {
+        $numberSeries = @()
+    }
+    
+    process {
+        $numberSeries += $number
+    }
+    
+    end {
+        $sortedNumbers = @($numberSeries | Sort-Object)
+        if ($numberSeries.Count % 2) {
+            # Odd, pick the middle
+            $sortedNumbers[($sortedNumbers.Count / 2) - 1]
+        } else {
+            # Even, average the middle two
+            ($sortedNumbers[($sortedNumbers.Count / 2)] + $sortedNumbers[($sortedNumbers.Count / 2) - 1]) / 2
+        }                        
+    }
 }
 
 Function Get-Rss {
