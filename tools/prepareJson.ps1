@@ -15,6 +15,23 @@ Function Get-Image {
   }
 }
 
+Function Get-Json-Files {
+  Param()
+  Begin {}
+  Process {
+    $articles = New-Object System.Collections.ArrayList
+    ls -Filter '*.json' | %{
+      $json = $_ | Get-Content -Encoding utf8 | ConvertFrom-Json
+      $a = New-Object PSObject -Property @{ 
+        date = $json.date_journal;
+        file = $_
+      }
+      $articles.Add( $a ) | Out-Null
+    }
+    $articles | Sort-Object -Property date | %{$_.file}
+  }
+}
+
 Function Get-Blog-Json {
   Param(
     [String]$Directory,
@@ -41,7 +58,7 @@ Function Get-Blog-Json {
         Width     = $image.Width
       }
     }
-    $jsonFiles = ls -Filter '*.json' | % {$_.Name}
+    $jsonFiles = Get-Json-Files | % {$_.Name}
     if ($Median) {
       $coords = Get-Median-Coord
     } else {
@@ -106,8 +123,7 @@ Function Get-Median-Coord {
   }
 }
 
-function Get-Median
-{
+function Get-Median{
     <# 
     .Synopsis 
         Gets a median 
