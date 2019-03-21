@@ -13,7 +13,7 @@ class App extends Component {
         </div>
     })
     var routes = configuration.blogs.map(blog => {
-      return <Route key = {blog.directory} path={blog.directory} component={() => {
+      return <Route key = {blog.directory} path={blog.directory} render={() => {
         return <Journey 
           name            = {blog.name           }
           directory       = {blog.directory      }
